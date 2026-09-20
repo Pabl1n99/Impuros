@@ -1,1 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Impuros RP | Avaliação</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+
+            background:
+                radial-gradient(circle at top, #400000, transparent 55%),
+                linear-gradient(135deg, #080808, #170000, #050505);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(15, 15, 15, 0.96);
+            border: 1px solid #3b3b3b;
+            border-radius: 20px;
+            padding: 35px 28px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.12);
+        }
+
+        .logo {
+            font-size: 38px;
+            font-weight: 900;
+            font-style: italic;
+            color: #ff0808;
+            text-shadow: 2px 2px 0px #650000;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            color: #ddd;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-top: 4px;
+        }
+
+        .divider {
+            height: 2px;
+            width: 60px;
+            background: #e50909;
+            margin: 22px auto;
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .question {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .star {
+            font-size: 42px;
+            color: #444;
+            cursor: pointer;
+            transition: 0.2s;
+            user-select: none;
+        }
+
+        .star:hover {
+            transform: scale(1.15);
+        }
+
+        .star.active {
+            color: #ff1616;
+            text-shadow: 0 0 12px rgba(255, 0, 0, 0.5);
+        }
+
+        .rating-text {
+            height: 20px;
+            color: #ff3333;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 95px;
+            resize: none;
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 13px;
+            color: white;
+            font-size: 13px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        textarea:focus {
+            border-color: #e50909;
+            box-shadow: 0 0 8px rgba(229, 9, 9, 0.15);
+        }
+
+        textarea::placeholder {
+            color: #777;
+        }
+
+        .submit {
+            width: 100%;
+            margin-top: 18px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff1717, #b40000);
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.25);
+        }
+
+        .submit:active {
+            transform: scale(0.98);
+        }
+
+        .discord {
+            display: block;
+            margin-top: 14px;
+            padding: 13px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .discord:hover {
+            background: #5865F2;
+            border-color: #5865F2;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .success {
+            display: none;
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #142b19;
+            border: 1px solid #285c35;
+            color: #76e695;
+            font-size: 13px;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .logo {
+                font-size: 32px;
+            }
+
+            .star {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">IMPUROS</div>
+        <div class="subtitle">ROLEPLAY</div>
+
+        <div class="divider"></div>
+
+        <h1>Avaliação da Comunidade</h1>
+
+        <p class="description">
+            O Impuros RP está em desenvolvimento,
+            e a sua opinião é muito importante para nós.
+            Avalie o andamento do projeto e compartilhe
+            suas sugestões para ajudar a construir uma
+            comunidade cada vez melhor.
+        </p>
+
+        <div class="question">
+            Como você avalia o desenvolvimento do Impuros RP?
+        </div>
+
+        <div class="stars" id="stars">
+
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+
+        </div>
+
+        <div class="rating-text" id="ratingText">
+            Selecione uma avaliação
+        </div>
+
+        <textarea
+            id="comment"
+            placeholder="Deixe sua opinião ou sugestão sobre o Impuros RP...">
+        </textarea>
+
+        <button class="submit" onclick="enviarAvaliacao()">
+            ENVIAR AVALIAÇÃO
+        </button>
+
+        <a
+            class="discord"
+            href="https://discord.gg/geqkb72bFH"
+            target="_blank">
+            💬 ENTRAR NO DISCORD
+        </a>
+
+        <div class="success" id="success">
+            ✔ Avaliação selecionada com sucesso!
+        </div>
+
+        <div class="footer">
+            © 2026 Impuros RP • Todos os direitos reservados.
+        </div>
+
+    </div>
+
+    <script>
+
+        let selectedRating = 0;
+
+        const stars = document.querySelectorAll(".star");
+
+        const ratingText = document.getElementById("ratingText");
+
+        const descriptions = {
+            1: "Muito ruim",
+            2: "Pode melhorar",
+            3: "Está indo bem",
+            4: "Muito bom",
+            5: "Excelente!"
+        };
+
+        stars.forEach(star => {
+
+            star.addEventListener("click", () => {
+
+                selectedRating = Number(star.dataset.value);
+
+                stars.forEach(s => {
+
+                    const value = Number(s.dataset.value);
+
+                    s.classList.toggle(
+                        "active",
+                        value <= selectedRating
+                    );
+
+                });
+
+                ratingText.textContent =
+                    descriptions[selectedRating];
+
+            });
+
+            star.addEventListener("mouseenter", () => {
+
+                const value = Number(star.dataset.value);
+
+                stars.forEach(s => {
+
+                    s.classList.toggle(
+                        "active",
+                        Number(s.dataset.value) <= value
+                    );
+
+                });
+
+            });
+
+            star.addEventListener("mouseleave", () => {
+
+                stars.forEach(s => {
+
+                    s.classList.toggle(
+                        "active",
+                        Number(s.dataset.value) <= selectedRating
+                    );
+
+                });
+
+            });
+
+        });
+
+        function enviarAvaliacao() {
+
+            const comment =
+                document.getElementById("comment").value.trim();
+
+            const success =
+                document.getElementById("success");
+
+            if (selectedRating === 0) {
+
+                alert("Selecione uma quantidade de estrelas!");
+
+                return;
+
+            }
+
+            if (comment.length === 0) {
+
+                alert("Escreva uma opinião antes de enviar!");
+
+                return;
+
+            }
+
+            success.style.display = "block";
+
+            success.textContent =
+                "✔ Avaliação selecionada! Obrigado pela sua opinião.";
+
+            console.log({
+                avaliacao: selectedRating,
+                comentario: comment
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>
