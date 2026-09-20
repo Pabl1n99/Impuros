@@ -389,5 +389,120 @@
             href="https://discord.gg/geqkb72bFH"
             target="_blank"
         >
-            Ent
+            Entre no nosso Discord →
+        </a>
+
+    </div>
+
+
+    <script>
+
+        const estrelas =
+            document.querySelectorAll(".estrela");
+
+        const botao =
+            document.getElementById("enviar");
+
+        const nota =
+            document.getElementById("nota");
+
+        const mensagem =
+            document.getElementById("mensagem");
+
+
+        let avaliacao = 0;
+
+
+        const textos = {
+
+            1: "Muito ruim",
+
+            2: "Pode melhorar",
+
+            3: "Está ficando bom",
+
+            4: "Muito bom",
+
+            5: "Excelente!"
+
+        };
+
+
+        /* SELECIONAR ESTRELAS */
+
+        estrelas.forEach(estrela => {
+
+            estrela.addEventListener("click", () => {
+
+                avaliacao =
+                    Number(estrela.dataset.valor);
+
+
+                estrelas.forEach(s => {
+
+                    s.classList.remove("ativa");
+
+                });
+
+
+                estrelas.forEach(s => {
+
+                    if (
+                        Number(s.dataset.valor)
+                        <= avaliacao
+                    ) {
+
+                        s.classList.add("ativa");
+
+                    }
+
+                });
+
+
+                nota.textContent =
+                    textos[avaliacao];
+
+
+                botao.disabled = false;
+
+            });
+
+        });
+
+
+        /* ENVIAR */
+
+        botao.addEventListener("click", () => {
+
+            if (avaliacao === 0) {
+
+                return;
+
+            }
+
+
+            mensagem.style.display =
+                "block";
+
+
+            botao.textContent =
+                "Avaliação enviada ✓";
+
+
+            botao.disabled =
+                true;
+
+
+            nota.textContent =
+                "Você avaliou o Impuros RP com "
+                + avaliacao
+                + " estrela"
+                + (avaliacao > 1 ? "s." : ".");
+
+        });
+
+    </script>
+
+</body>
+</html>
 ```
