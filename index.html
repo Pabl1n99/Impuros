@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impuros RP — Avaliação</title>
+
+    <title>Impuros RP | Avaliação</title>
 
     <style>
         * {
@@ -19,13 +20,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
             color: white;
+
             background:
-                linear-gradient(rgba(5, 5, 8, 0.70), rgba(5, 5, 8, 0.88)),
+                linear-gradient(
+                    rgba(5, 5, 8, 0.68),
+                    rgba(5, 5, 8, 0.90)
+                ),
                 url("https://cdn.discordapp.com/banners/1448565935429521441/8bf7c3f8a9fd1f6f10233c49608b557e.png?size=2048");
+
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+
             overflow: hidden;
         }
 
@@ -33,156 +41,255 @@
             content: "";
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.12);
             pointer-events: none;
         }
 
+        /* CARD PRINCIPAL */
+
         .container {
             position: relative;
+
             width: 90%;
             max-width: 520px;
-            padding: 45px 35px;
+
+            padding: 42px 35px;
+
             text-align: center;
-            background: rgba(15, 15, 20, 0.88);
+
+            background: rgba(14, 14, 19, 0.88);
+
             border: 1px solid rgba(255, 255, 255, 0.13);
+
             border-radius: 22px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.60);
+
+            backdrop-filter: blur(12px);
+
             animation: aparecer 0.7s ease;
         }
+
+        /* ANIMAÇÃO */
 
         @keyframes aparecer {
             from {
                 opacity: 0;
                 transform: translateY(25px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
+        /* LOGO */
+
         .logo {
-            width: 85px;
-            height: 85px;
+            width: 100px;
+            height: 100px;
+
             margin: 0 auto 18px;
+
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: bold;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            overflow: hidden;
+
+            border: 2px solid rgba(255, 255, 255, 0.20);
+
+            box-shadow:
+                0 8px 35px rgba(0, 0, 0, 0.55);
+
+            background: rgba(255, 255, 255, 0.05);
         }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+        /* TÍTULO */
 
         h1 {
             font-size: 32px;
+
             margin-bottom: 8px;
+
             letter-spacing: 1px;
+
+            font-weight: 700;
         }
 
         .subtitulo {
             color: #bdbdbd;
+
             font-size: 15px;
+
             margin-bottom: 35px;
         }
 
+        /* PERGUNTA */
+
         .pergunta {
             font-size: 21px;
+
             font-weight: 600;
-            margin-bottom: 25px;
+
             line-height: 1.4;
+
+            margin-bottom: 25px;
         }
+
+        /* ESTRELAS */
 
         .estrelas {
             display: flex;
+
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 12px;
+
+            gap: 7px;
+
+            margin-bottom: 10px;
+
             direction: rtl;
         }
 
         .estrela {
             font-size: 45px;
+
             color: #555;
+
             cursor: pointer;
-            transition: 0.2s;
+
             user-select: none;
+
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
         }
 
         .estrela:hover,
         .estrela:hover ~ .estrela {
             color: #f5c542;
+
             transform: scale(1.08);
         }
 
-        .estrelas.selecionado .estrela {
-            color: #555;
-        }
-
-        .estrelas.selecionado .estrela.ativa {
+        .estrela.ativa {
             color: #f5c542;
         }
 
+        /* TEXTO DA NOTA */
+
         .nota {
             height: 20px;
+
             color: #aaa;
+
             font-size: 14px;
+
             margin-bottom: 25px;
         }
 
+        /* BOTÃO */
+
         .enviar {
             width: 100%;
+
             border: none;
+
             padding: 14px;
+
             border-radius: 10px;
+
             background: #f5c542;
+
             color: #111;
+
             font-size: 16px;
+
             font-weight: bold;
+
             cursor: pointer;
-            transition: 0.25s;
+
+            transition:
+                transform 0.25s ease,
+                filter 0.25s ease;
         }
 
         .enviar:hover {
             transform: translateY(-2px);
+
             filter: brightness(1.08);
         }
 
         .enviar:disabled {
             opacity: 0.5;
+
             cursor: not-allowed;
+
             transform: none;
         }
 
+        /* DISCORD */
+
         .discord {
             display: inline-block;
+
             margin-top: 20px;
+
             color: #aaa;
+
             text-decoration: none;
+
             font-size: 14px;
-            transition: 0.2s;
+
+            transition: 0.2s ease;
         }
 
         .discord:hover {
             color: white;
+
+            transform: translateY(-1px);
         }
+
+        /* MENSAGEM */
 
         .mensagem {
             display: none;
+
             margin-top: 22px;
+
             padding: 13px;
+
             border-radius: 10px;
+
             background: rgba(245, 197, 66, 0.12);
-            border: 1px solid rgba(245, 197, 66, 0.3);
+
+            border: 1px solid rgba(245, 197, 66, 0.30);
+
             color: #f5c542;
+
             font-size: 14px;
         }
 
+        /* RESPONSIVIDADE */
+
         @media (max-width: 600px) {
+
             .container {
                 padding: 35px 25px;
+            }
+
+            .logo {
+                width: 85px;
+                height: 85px;
             }
 
             h1 {
@@ -204,9 +311,17 @@
 
     <div class="container">
 
+        <!-- LOGO DO IMPUROS RP -->
+
         <div class="logo">
-            IRP
+            <img
+                src="https://cdn.discordapp.com/icons/1448565935429521441/4e3584609eae9bc2b1f0c03e3537e92f.png?size=2048"
+                alt="Logo Impuros RP"
+            >
         </div>
+
+
+        <!-- NOME -->
 
         <h1>Impuros RP</h1>
 
@@ -214,104 +329,65 @@
             Sua opinião ajuda o projeto a evoluir.
         </p>
 
+
+        <!-- PERGUNTA -->
+
         <div class="pergunta">
             Como você avalia o desenvolvimento do Impuros RP?
         </div>
 
+
+        <!-- ESTRELAS -->
+
         <div class="estrelas" id="estrelas">
 
             <span class="estrela" data-valor="5">★</span>
+
             <span class="estrela" data-valor="4">★</span>
+
             <span class="estrela" data-valor="3">★</span>
+
             <span class="estrela" data-valor="2">★</span>
+
             <span class="estrela" data-valor="1">★</span>
 
         </div>
+
+
+        <!-- TEXTO DA AVALIAÇÃO -->
 
         <div class="nota" id="nota">
             Selecione uma avaliação
         </div>
 
-        <button class="enviar" id="enviar" disabled>
+
+        <!-- BOTÃO -->
+
+        <button
+            class="enviar"
+            id="enviar"
+            disabled
+        >
             Enviar avaliação
         </button>
 
-        <div class="mensagem" id="mensagem">
+
+        <!-- MENSAGEM -->
+
+        <div
+            class="mensagem"
+            id="mensagem"
+        >
             Obrigado por avaliar o Impuros RP!
         </div>
+
+
+        <!-- DISCORD -->
 
         <a
             class="discord"
             href="https://discord.gg/geqkb72bFH"
             target="_blank"
         >
-            Entre no nosso Discord →
-        </a>
-
-    </div>
-
-    <script>
-
-        const estrelas = document.querySelectorAll(".estrela");
-        const grupoEstrelas = document.getElementById("estrelas");
-        const nota = document.getElementById("nota");
-        const botao = document.getElementById("enviar");
-        const mensagem = document.getElementById("mensagem");
-
-        let avaliacao = 0;
-
-        const textos = {
-            1: "Muito ruim",
-            2: "Pode melhorar",
-            3: "Está ficando bom",
-            4: "Muito bom",
-            5: "Excelente!"
-        };
-
-        estrelas.forEach(estrela => {
-
-            estrela.addEventListener("click", () => {
-
-                avaliacao = Number(estrela.dataset.valor);
-
-                estrelas.forEach(s => {
-                    s.classList.remove("ativa");
-                });
-
-                estrelas.forEach(s => {
-                    if (Number(s.dataset.valor) <= avaliacao) {
-                        s.classList.add("ativa");
-                    }
-                });
-
-                grupoEstrelas.classList.add("selecionado");
-
-                nota.textContent = textos[avaliacao];
-
-                botao.disabled = false;
-            });
-
-        });
-
-        botao.addEventListener("click", () => {
-
-            if (avaliacao === 0) return;
-
-            mensagem.style.display = "block";
-
-            botao.textContent = "Avaliação enviada ✓";
-            botao.disabled = true;
-
-            nota.textContent =
-                "Você avaliou o Impuros RP com " +
-                avaliacao +
-                " estrela" +
-                (avaliacao > 1 ? "s." : ".");
-
-        });
-
-    </script>
-
-</body>
-</html>
+            Ent
 ```
